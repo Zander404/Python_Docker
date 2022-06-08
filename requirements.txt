@@ -1,0 +1,5 @@
+djangorestframework
+Django==3.1.2
+psycopg2-binary==2.9.3
+sentry-sdk
+gunicorn==19.9.0
