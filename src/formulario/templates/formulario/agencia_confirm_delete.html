@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewpoint"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximun-scale=1.0, minimun-scale=1.0">
+    <meta http-equiv="X-UA-Compatible", content="ie=edge">
+    <title>Apagar Agência</title>
+</head>
+<body background="https://img.freepik.com/vetores-gratis/ilustracao-dos-desenhos-animados-do-cofre-de-banco-porta-segura-do-ferro-metalico_1441-1915.jpg?t=st=1650806118~exp=1650806718~hmac=d95feddc9a8d27914ed329051c19d7c45b239ad9f8efc7ab1b0dbea020b3728d&w=1060">
+<h1 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">
+    Tem certeza que quer apagar essa Agência '{{ object.name_Agencia }}'? </h1>
+<form action="." method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Sim tenho certeza" >
+    <input type="reset" value="Não quero apagar" onclick ="location.href = '{% url 'listAgencia' %}'" >
+</form>
+
+</body>
+</html>

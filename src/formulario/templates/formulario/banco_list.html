@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-br">
+    <link href="/static/formulario/css/style.css" type="text/css" rel="stylesheet" >
+    <script src="/script.js" defer ></script>
+    <head>
+       
+        <meta charset="UTF-8">
+        <meta name="viewpoint"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximun-scale=1.0, minimun-scale=1.0">
+        <meta http-equiv="X-UA-Compatible", content="ie=edge">
+        <title>Cadastro de Banco</title>
+    </head>
+
+    <body>
+        <main>
+            
+            <section class="cadastro">
+                <h1 class="cadastro__title" > Listagem dos Bancos </h1>
+                <br>
+                <br>
+                
+                <input class="cadastro__novo" type="submit" value="Novo Banco" onclick="location.href= '{% url 'createBanco' %}'">
+                
+                <table border="1" id="tabela" >
+                    <thead class="cadastro__thead">
+                        <tr>
+                            <th scope="col">Banco</th>
+                            <th scope="col">Código</th>
+                            <th class="cadastro__th" scope="col">Opções</th>
+                        </tr>
+                        
+                        <tr>
+                            <th><input class="input__pesquisa" type="text" id="txtColuna1"/></th>
+                            <th><input class="input__pesquisa" type="text" id="txtColuna2"/></th>
+                            <th><input class="input__pesquisa" type="text" id="txtColuna3"/></th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody class="cadastro_tbody">
+                    
+                        {% for Banco in object_list %}
+                            <tr scope="row">    
+                                <td class="cadastro__data"> {{ Banco.nome }}</td>
+                                <td class="cadastro__data"> {{ Banco.numero }} </td> 
+                                <td class="cadastro__data"> <a href="{% url 'updateBanco' pk=Banco.id %}"><button class="button1">Editar</button></a>   -  <a href="{% url 'deleteBanco' pk=Banco.id %}"><button class="button1">Deletar</button></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+            </section>
+        </main>
+    </body>
+</html>
